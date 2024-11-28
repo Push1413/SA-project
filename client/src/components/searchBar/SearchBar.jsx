@@ -22,17 +22,6 @@ function SearchBar() {
 
   return (
     <div className="searchBar">
-      <div className="type">
-        {types.map((type) => (
-          <button
-            key={type}
-            onClick={() => switchType(type)}
-            className={query.type === type}
-          >
-            {type}
-          </button>
-        ))}
-      </div>
       <form>
         <input type="text"
          name="location" 
