@@ -8,7 +8,7 @@ const app = express();
 const corsOptions = {
     origin: process.env.CLIENT_URL
 };
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
