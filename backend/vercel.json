@@ -11,6 +11,11 @@
       }
     ],
     "routes": [
-      { "src": "/(.*)", "dest": "/" }
+      { "src": "/(.*)",
+       "dest": "/",
+      "methods":["GET","POST","DELETE","PATCH", "OPTIONS"],
+       "headers":{
+        "Access-Control-Allow-Origin":"*"
+       } }
     ]
   }
