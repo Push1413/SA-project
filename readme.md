@@ -10,7 +10,7 @@ MongoDB Schema Sample
 
 <img width="952" alt="Screenshot 2024-11-30 at 1 54 26 PM" src="https://github.com/user-attachments/assets/4f54900d-d6b3-40f0-8350-0c50c9895467">
 
-Deployment steps
+Deployment steps </br>
 Add envirnoment varaiables like DATABASE_URL, CLIENT_URL, BE_URL 
 
 Tech Stack => Prisma ORM, leaflet (Maps), react-router-dom
