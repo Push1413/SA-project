@@ -4,13 +4,27 @@ export const getPosts = async (req, res) => {
   const query = req.query;
 
   try {
-    const posts = await prisma.post.findMany();
+    // Build the queryParams object
+    const queryParams = {
+      ...(query.city && { city: query.city }),
+      ...(query.property && { property: query.property }),
+      ...(query.bedroom && !isNaN(Number(query.bedroom)) && { bedroom: Number(query.bedroom) }),
+      price: {
+        ...(query.minPrice && !isNaN(Number(query.minPrice)) && { gte: Number(query.minPrice) }),
+        ...(query.maxPrice && !isNaN(Number(query.maxPrice)) && { lte: Number(query.maxPrice) }),
+      },
+    };
+  
+    // Fetch posts with dynamic where clause
+    const posts = await prisma.post.findMany({ where: queryParams });
+  
     res.status(200).json(posts);
   } catch (err) {
-    console.log(err);
-    console.log("ert")
+    console.error("Error fetching posts:", err.message);
     res.status(500).json({ message: "Failed to get posts" });
   }
+  
+  
 };
 
 export const getPost = async (req, res) => {
