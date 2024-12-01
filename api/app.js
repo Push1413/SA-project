@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import { PORT } from "./config.js";
 import postRoute from "./routes/post.route.js";
 
 const app = express();
@@ -15,6 +14,6 @@ app.use(cookieParser());
 app.use("/api/post", postRoute)
 
 
-app.listen(PORT, ()=>{
- console.log(`App is listing to port: ${PORT}`);
+app.listen(process.env.PORT, ()=>{
+ console.log(`App is listing to port: ${process.env.PORT}`);
 });
